@@ -1,0 +1,32 @@
+.add-event-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; 
+  }
+  
+  .add-event-heading {
+    margin-top: 20%;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .add-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 200px;
+  }
+
+  .add-event-form textarea {
+    height: 50px;
+    width: 80%;
+  }
+  
+  /* Aggiungi stili per gli altri elementi secondo necessità */
+  

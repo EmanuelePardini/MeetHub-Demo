@@ -1,0 +1,46 @@
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #f4f4f4;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+
+.footer-section {
+    margin-left: 10px;
+    flex: 1 1 20%;
+}
+
+.footer-section h3 {
+  font-size: 1rem;
+  color: #333;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a, li, p {
+font-size: 0.75rem;
+  text-decoration: none;
+  color: #666;
+}
+
+.footer-section a:hover {
+  color: #000;
+}
+
+.logo {
+  font-family: "Pacifico", sans-serif;
+  font-size: 1.5rem; /* Dimensione del font di esempio */
+  background: linear-gradient(to bottom right, #00d9ff, #000000);
+  -webkit-background-clip: text; /* Specifico per WebKit (Chrome, Safari, etc.) */
+  color: transparent; /* Rende il testo del titolo trasparente */
+}

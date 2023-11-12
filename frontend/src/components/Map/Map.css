@@ -1,0 +1,7 @@
+.map {
+    height: 20em;
+    width: 20em;
+    border-radius: 5px; /* Forma circolare */
+    border: 1px solid #000;
+    margin: auto; /* Centra la mappa nel suo contenitore */
+  }

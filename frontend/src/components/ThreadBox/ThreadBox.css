@@ -1,0 +1,71 @@
+.thread-container {
+  display: flex;
+  flex-direction: column;
+  height: 80em;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  overflow-y: scroll;
+  background-image: url('https://s1.1zoom.me/b5047/548/Wood_planks_Blue_Light_Blue_530211_2560x1440.jpg');
+  border-radius: 25px;
+  border: #000000 2px solid;
+}
+
+.message {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 50%; /* Aggiunto per limitare la larghezza dei messaggi */
+}
+
+.received {
+  background-color: rgb(255, 255, 255);
+  align-self: flex-start;
+  
+}
+
+.sent {
+  background-color: #e6ffff;
+  align-self: flex-end;
+  margin-left: auto; /* Aggiunto per allineare a destra */
+}
+
+
+  
+  .textbox {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    resize: none;
+    outline: none;
+  }
+  
+  .send-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .thread-messages {
+    flex: 1; /* Inserisce uno spazio flessibile tra i messaggi e l'area di input */
+    overflow-y: auto; /* Aggiunge uno scroll se i messaggi superano l'altezza */
+    word-wrap: break-word;
+  }
+  
+  .thread-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    bottom: 0; /* Posiziona l'area di input in basso */
+    padding: 10px;
+  }
+
+  .username {
+    font-size: 14px; /* Cambia la dimensione del font come preferisci */
+  }
