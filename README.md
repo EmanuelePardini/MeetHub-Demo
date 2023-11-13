@@ -1,5 +1,5 @@
 # MeetHub-Demo
-![MeetHub](MeetHub-Demo.png)
+![MeetHub](MeetHubDemo.png)
 ## Description:
 The first and opensource version of a social platform for sharing events made in PHP React
 
