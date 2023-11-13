@@ -14,10 +14,9 @@ The first and opensource version of a social platform for sharing events made in
 
 ## How to Use:
 
-1. Access the web app at [MeetHub](http://meethub.altervista.org).  
-2. Click login and then register  
-3. Now watch or add events around you  
-4. Join events and chat with users
+1. Click login and then register  
+2. Now watch or add events around you  
+3. Join events and chat with users
 
 ## Project Setup:
 
