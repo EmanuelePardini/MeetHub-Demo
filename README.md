@@ -20,6 +20,7 @@ The first and opensource version of a social platform for sharing events made in
 
 ## Project Setup:
 
+0.Install Node, PHP, Composer
 1. Download the github repository  
 2. Set up your .env files  
 3. Enter the frontend dir and do npm install  
