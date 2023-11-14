@@ -28,7 +28,7 @@ The first and opensource version of a social platform for sharing events made in
 5. Do npm start to use for the frontend  
 6. Do php artisan serve for the backend
 7. Execute the migration.sql on Mysql. 
-8. 8. Enjoy!  
+8. Enjoy!  
 
 
 ## Technologies Used:
