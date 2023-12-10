@@ -14,6 +14,7 @@ The first and opensource version of a social platform for sharing events made in
 
 ## How to Use:
 
+0. Go on This web app was created by [MeetHub](http://meethub.altervista.org/).
 1. Click login and then register  
 2. Now watch or add events around you  
 3. Join events and chat with users
