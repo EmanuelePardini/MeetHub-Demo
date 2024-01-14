@@ -34,7 +34,7 @@ Route::delete('/unsubscribe/{user}/{event}', [EventController::class, 'unsubscri
 Route::delete('/events/{event}', [EventController::class, 'destroy']);
 
 //USERS
-Route::get('/users', [UserController::class, 'index']);
+//Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/is-subscribed/{userId}/{eventId}', [UserController::class, 'isSubscribed']);
 
