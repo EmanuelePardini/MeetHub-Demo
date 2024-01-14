@@ -76,7 +76,7 @@ const EventGrid = ({ events }) => {
           </div>
         ))}
       </ul>
-      <Footer />
+         {/* <Footer /> */}
     </div>
   );
 };
