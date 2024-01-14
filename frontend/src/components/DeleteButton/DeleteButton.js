@@ -36,7 +36,7 @@ const DeleteButton = ({ eventId, creatorId }) => {
   }}
 >
   <img
-    src="https://chistoviki.com/static/images/nomark.png"
+    src="https://www.pngplay.com/wp-content/uploads/7/Delete-Logo-PNG-Clipart-Background.png"
     alt="Icon"
     style={{
       width: "30px",      // Riduci la larghezza dell'icona
