@@ -17,17 +17,17 @@
   margin: 20px;
   text-align: center;
   position: relative;
-  background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradiente azzurro */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Ombra più marcata */
+  background: white; /* Sfondo bianco per un aspetto di post */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombra più marcata */
   overflow: hidden;
+  border: 1px solid #ddd; /* Bordo grigio chiaro */
 }
 
 /* Modifiche al comportamento al passaggio del mouse */
 .event-card:hover {
-  transform: scale(1.05); /* Leggero ingrandimento */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Ombra più intensa */
+  transform: scale(1.02); /* Leggero ingrandimento */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Ombra più intensa */
 }
-
 
 /* Dettagli dell'evento (nascosti di default) */
 .event-details {
@@ -41,7 +41,7 @@
   padding: 20px;
   overflow-y: auto;
   transition: opacity 0.4s ease;
-  border-radius: 8px;
+  border-radius: 12px; /* Match the card border radius */
 }
 
 /* Visibilità dei dettagli al passaggio del mouse */
@@ -50,16 +50,11 @@
   opacity: 1;
 }
 
-.event-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
 /* Stile immagine evento */
 .event-card img {
   width: 100%;
   height: auto; /* Mantiene le proporzioni dell'immagine */
-  border-radius: 8px;
+  border-radius: 8px; /* Angoli arrotondati per l'immagine */
 }
 
 /* Pulsante di azione */
@@ -111,7 +106,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-
 .event-body p {
   font-size: 0.9rem;
   color: #666;
@@ -130,4 +124,21 @@
 
 .arrow-buttons button:hover {
   color: #00d9ff; /* Cambia colore al passaggio del mouse */
+}
+
+/* Media Query per layout mobile */
+@media (max-width: 768px) {
+  .event-card {
+    width: calc(90% - 20px); /* Larghezza per i dispositivi mobili */
+    aspect-ratio: 1.2; /* Rende le card leggermente più rettangolari su mobile */
+    margin: 10px; /* Riduce il margine per il layout mobile */
+  }
+
+  .event-body h1 {
+    font-size: 1.2rem; /* Dimensione font del titolo più piccola */
+  }
+  
+  .event-body p {
+    font-size: 0.8rem; /* Dimensione font del testo più piccola */
+  }
 }
