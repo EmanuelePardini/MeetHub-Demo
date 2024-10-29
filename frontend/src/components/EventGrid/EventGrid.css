@@ -130,7 +130,6 @@
 /* Media Query for mobile layout */
 @media (max-width: 768px) {
   .event-grid {
-    flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center the cards */
   }
 
