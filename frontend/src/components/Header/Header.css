@@ -1,91 +1,46 @@
-/* Header principale */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px; /* Consider reducing if needed */
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Full width */
-  position: fixed; /* Fixed position */
-  top: 0; /* Fixed to top */
-  left: 0; /* Fixed to left */
-  z-index: 1; /* Keeps it above content */
-}
-
-
-/* Pulsante di apertura dei filtri */
-.header button {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333; /* Colore scuro per contrasto */
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.header button:hover {
-  color: #00d9ff;
-  transform: scale(1.1); /* Effetto leggero di ingrandimento */
-}
-
-.header button img {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-/* Sezione dei filtri */
-.filters {
-  display: none;
-  flex-direction: column;
   padding: 20px;
-  background-color: #f8f9fa;
-  border-right: 1px solid #e0e0e0;
   position: fixed;
-  top: 80px; /* Posizionato sotto l'header */
+  background-color: #f4f4f4;
+  z-index: 1;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f4f4f4;
+  position: fixed;
+  top: 60px; /* Posizionamento sotto l'header */
   left: 0;
   width: 25%;
-  height: calc(100vh - 80px); /* Riempie lo schermo */
-  overflow-y: auto;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  display: none; /* Inizialmente nascosto */
 }
 
 .filters.show {
-  display: flex; /* Visualizzazione attivata */
+  display: flex; /* Visibile quando 'showFilters' è true */
 }
 
-/* Stile per i filtri e gli input */
-.filters input {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 90%;
-  font-size: 14px;
-  transition: border-color 0.3s;
+input {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
 }
 
-.filters input:focus {
-  outline: none;
-  border-color: #00d9ff; /* Cambia colore al focus */
+.header button {
+  font-size: 24px;
+  background: linear-gradient(to right, #00d9ff, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Pulsante di attivazione dei filtri */
-.show-filters-btn {
-  padding: 10px;
-  font-size: 16px;
-  color: white;
-  background: linear-gradient(135deg, #00d9ff, #005f7f);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.show-filters-btn:hover {
-  background: linear-gradient(135deg, #005f7f, #00d9ff);
-}
+.header button img {
+    width: 20px;
+    height: 20px;
+  }
+  
