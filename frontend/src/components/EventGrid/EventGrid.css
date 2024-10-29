@@ -10,6 +10,7 @@
 /* Stile principale delle card evento */
 .event-card {
   flex-grow: 1; /* Allow this container to grow and take available space */
+  width: 90%;
   aspect-ratio: 1; /* Rende le card quadrate */
   border-radius: 12px; /* Angoli più arrotondati */
   padding: 20px;
