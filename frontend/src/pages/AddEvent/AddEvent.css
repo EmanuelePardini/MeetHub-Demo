@@ -83,7 +83,6 @@
 
 @media (max-width: 768px) {
   .header {
-    flex-direction: column; /* Cambia la direzione degli elementi in colonna per schermi più piccoli */
     align-items: flex-start; /* Allinea gli elementi a sinistra */
   }
 

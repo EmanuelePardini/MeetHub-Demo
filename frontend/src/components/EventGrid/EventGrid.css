@@ -126,15 +126,3 @@
 .arrow-buttons button:hover {
   color: #00d9ff; /* Cambia colore al passaggio del mouse */
 }
-
-/* Media Query for mobile layout */
-@media (max-width: 768px) {
-  .event-grid {
-    align-items: center; /* Center the cards */
-  }
-
-  .event-card {
-    width: 90%; /* Use 90% width on mobile */
-    margin: 10px 0; /* Add space between cards */
-  }
-}
