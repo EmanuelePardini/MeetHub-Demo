@@ -61,10 +61,11 @@ const Register = () => {
 
   return (
     <div className="sign-page">
-      <h1>MeetHub</h1>
-      <p>Where Every Connection Counts.</p>
+
     <div className="sign-form">  
       <form onSubmit={handleSubmit}>
+      <h1>MeetHub</h1>
+      <p>Where Every Connection Counts.</p>
       <h2>Register</h2>
         <input
           type="text"

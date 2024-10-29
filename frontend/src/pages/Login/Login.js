@@ -26,14 +26,14 @@ const Login = () => {
     setError(null);
 
     axios
-        .post(`${apiUrl}/api/login`, formData)
-        .then((response) => {
-            const { token, user_id, role } = response.data;
-            localStorage.setItem('token', token); // Salva il token nel localStorage
-            localStorage.setItem('userId',user_id);
-            localStorage.setItem('userRole',role);
-            navigate("/home");
-        })
+      .post(`${apiUrl}/api/login`, formData)
+      .then((response) => {
+        const { token, user_id, role } = response.data;
+        localStorage.setItem("token", token); // Salva il token nel localStorage
+        localStorage.setItem("userId", user_id);
+        localStorage.setItem("userRole", role);
+        navigate("/home");
+      })
       .catch((error) => {
         if (error.response && error.response.status === 401) {
           setError(
@@ -49,10 +49,10 @@ const Login = () => {
 
   return (
     <div className="sign-page">
-      <h1>MeetHub</h1>
-      <p>Where Every Connection Counts.</p>
       <div className="sign-form">
         <form onSubmit={handleLogin}>
+        <h1>MeetHub</h1>
+        <p>Where Every Connection Counts.</p>
           <h2>Sign in</h2>
           <input
             type="text"
@@ -70,11 +70,9 @@ const Login = () => {
           />
           {error && <p className="error-message">{error}</p>}
           <button type="submit">Login</button>
-        </form>
 
-        <p>
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
+          <p> Don't have an account? <Link to="/register">Register</Link></p>
+        </form>
       </div>
     </div>
   );

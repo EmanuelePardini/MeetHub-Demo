@@ -1,3 +1,4 @@
+/* Body reset and font styles */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,74 +6,92 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(120deg, #f0f4f8, #d9e4f5); /* Sfondo pastello più leggero */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-  
+
 .sign-page {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
   text-align: center;
-  
 }
 
 .sign-page h1 {
-  font-family: 'Pacifico', sans-serif;
-  font-size: 48px; /* Dimensione del font di esempio */
-  background: linear-gradient(to bottom right, #00d9ff, #000000);
-  -webkit-background-clip: text; /* Specifico per WebKit (Chrome, Safari, etc.) */
-  color: transparent; /* Rende il testo del titolo trasparente */
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  background: linear-gradient(to bottom right, #ff7b00, #ff007b);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 30px;
 }
 
 .sign-form {
-  flex: 1;
-  text-align: right;
-  padding: 20px;
-}
-
-.sign-form {
-  flex: 1;
-  text-align: right;
+  display: flex;
+  justify-content: center;
   padding: 20px;
 }
 
 .sign-form form {
-  background-color: #f3f3f3;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
 }
 
 .form-group {
-  margin-bottom: 10px;
-  
+  margin-bottom: 20px;
 }
 
 input, select {
-  width: 75%;
-  padding: 10px;
-  margin: 5px 0;
+  width: 80%;
+  padding: 12px;
+  margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #ff007b;
+  box-shadow: 0 0 8px rgba(255, 0, 123, 0.4);
 }
 
 button {
-  width: 40%;
-  padding: 10px;
+  width: 60%;
+  padding: 12px;
   border: none;
-  border-radius: 3px;
-  background: linear-gradient(to bottom right, #00d9ff, #000000);
-  -webkit-background-clip: background; /* Specifico per WebKit (Chrome, Safari, etc.) */
-  color: transparent; /* Rende il testo del titolo trasparente */
+  border-radius: 25px;
+  background: linear-gradient(to right, #ff7b00, #ff007b);
   color: white;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 0, 123, 0.3);
+  margin-top: 20px;
+}
+
+button:hover {
+  background: linear-gradient(to left, #ff7b00, #ff007b);
+  transform: translateY(-3px);
 }
 
 .error-message {
-  color: red;
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 10px;
 }
