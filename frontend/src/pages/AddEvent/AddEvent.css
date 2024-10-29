@@ -1,13 +1,15 @@
-/* Contenitore principale della sezione per aggiungere un evento */
-.add-event-container {
-  max-width: 600px; /* Limite massimo di larghezza */
-  width: 100%; /* Assicura che il form utilizzi il 100% della larghezza disponibile */
-  margin: 5% auto; /* Centra il form orizzontalmente */
-  padding: 30px;
-  background: #f9f9fb;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+.add-event-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+  overflow-y: auto; /* Allow scrolling */
 }
+
+.add-event-container {
+  flex-grow: 1; /* Allow this container to grow and take available space */
+  padding: 20px;
+}
+
 
 /* Intestazione per aggiungere un evento */
 .add-event-heading {
