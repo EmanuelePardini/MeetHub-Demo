@@ -1,11 +1,12 @@
 /* Contenitore principale della sezione per aggiungere un evento */
 .add-event-container {
-  max-width: 600px;
-  margin: 5% auto;
+  max-width: 600px; /* Limite massimo di larghezza */
+  width: 100%; /* Assicura che il form utilizzi il 100% della larghezza disponibile */
+  margin: 5% auto; /* Centra il form orizzontalmente */
   padding: 30px;
-  background: #f9f9fb; /* Colore di sfondo più leggero */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra morbida */
-  border-radius: 12px; /* Raggi arrotondati più ampi */
+  background: #f9f9fb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
 }
 
 /* Intestazione per aggiungere un evento */
@@ -73,13 +74,14 @@
   transform: translateY(-2px); /* Effetto di sollevamento al passaggio del mouse */
 }
 
-/* Stile per una sezione più responsiva */
 @media (max-width: 768px) {
-  .add-event-container {
-    padding: 20px;
+  .header {
+    flex-direction: column; /* Cambia la direzione degli elementi in colonna per schermi più piccoli */
+    align-items: flex-start; /* Allinea gli elementi a sinistra */
   }
 
-  .add-event-form button {
-    width: 80%;
+  .add-event-container {
+    width: 90%; /* Rende il form più largo su schermi piccoli */
+    padding: 20px; /* Riduce il padding per il mobile */
   }
 }

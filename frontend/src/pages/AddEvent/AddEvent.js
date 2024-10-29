@@ -4,6 +4,41 @@ import axios from "axios";
 import { Header, Footer } from "../../components";
 import "./AddEvent.css";
 
+const InputField = ({ label, type, name, value, onChange, error, helpText }) => (
+  <div className="input-field">
+    <label>{label}</label>
+    {helpText && <p>{helpText}</p>}
+    <input type={type} name={name} value={value} onChange={onChange} />
+    {error && <p className="error-message">{error}</p>}
+  </div>
+);
+
+const TextAreaField = ({ label, name, value, onChange, error, helpText }) => (
+  <div className="input-field">
+    <label>{label}</label>
+    {helpText && <p>{helpText}</p>}
+    <textarea name={name} value={value} onChange={onChange} />
+    {error && <p className="error-message">{error}</p>}
+  </div>
+);
+
+const SelectField = ({ label, name, value, onChange, options, error }) => (
+  <div className="input-field">
+    <label>{label}</label>
+    <select name={name} value={value} onChange={onChange}>
+      <option value={0} disabled>
+        Select a category
+      </option>
+      {options.map((option) => (
+        <option key={option.id} value={option.id}>
+          {option.category}
+        </option>
+      ))}
+    </select>
+    {error && <p className="error-message">{error}</p>}
+  </div>
+);
+
 const AddEvent = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -15,39 +50,29 @@ const AddEvent = () => {
     location: "",
     latitude: "",
     longitude: "",
-    category_id: 0, // Assicurati di avere un modo per ottenere le categorie disponibili
+    category_id: 0,
   });
 
-  const [categories, setCategories] = useState([]); // Stato per memorizzare le categorie disponibili
+  const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState({});
-  const [generalError, setGeneralError] = useState();
+  const [generalError, setGeneralError] = useState("");
   const navigate = useNavigate();
 
-  const renderError = (field) => {
-    return (
-      errors[field] && errors[field][0] && (
-        <p className="error-message">{errors[field][0]}</p>
-      )
-    );
-  };
-
   useEffect(() => {
-    // Controllo del ruolo dopo che le categorie sono state ottenute
     const role = localStorage.getItem('userRole');
     if (role !== 'creator') {
       navigate('/home');
     }
-  }, []);
-  
+  }, [navigate]);
+
   useEffect(() => {
-    // Esegui la richiesta API per ottenere le categorie
     axios
       .get(`${process.env.REACT_APP_API_BASE_URL}/api/categories`)
       .then((response) => {
         setCategories(response.data);
-      });
-
- }, []); // L'array vuoto come secondo argomento garantisce che l'effetto venga eseguito solo una volta
+      })
+      .catch((error) => console.error("Error fetching categories:", error));
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -59,12 +84,22 @@ const AddEvent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Esegui la richiesta API per inserire l'evento
+    // Basic validation
+    const newErrors = {};
+    for (const field in formData) {
+      if (!formData[field] && field !== "latitude" && field !== "longitude") {
+        newErrors[field] = ["This field is required."];
+      }
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     axios
       .post(
-        `${
-          process.env.REACT_APP_API_BASE_URL
-        }/api/events/${localStorage.getItem("userId")}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/events/${localStorage.getItem("userId")}`,
         formData
       )
       .then((response) => {
@@ -73,14 +108,10 @@ const AddEvent = () => {
       })
       .catch((error) => {
         if (error.response && error.response.status === 422) {
-          // Se ci sono errori di validazione, aggiorniamo lo stato degli errori
           setErrors(error.response.data.errors);
-          setGeneralError(
-            "An error occurred while submitting the event. Please check for missing or incorrect information and try submitting again."
-          );
-          console.log(error.response.data.errors);
+          setGeneralError("An error occurred while submitting the event. Please check for missing or incorrect information and try again.");
         } else {
-          console.error("Errore durante l'inserimento dell'evento:", error);
+          console.error("Error while creating the event:", error);
         }
       });
   };
@@ -90,120 +121,97 @@ const AddEvent = () => {
       <Header />
       <div className="add-event-container">
         <h2 className="add-event-heading">Add Event</h2>
-
         <form onSubmit={handleSubmit} className="add-event-form">
-          <label>Title</label>
-          <p>The title of the event</p>
-          <input
+          <InputField
+            label="Title"
             type="text"
             name="title"
             value={formData.title}
             onChange={handleChange}
+            error={errors.title}
+            helpText="The title of the event"
           />
-          {renderError('title')}
-
-          <label>Image URL</label>
-          <p>Search an image on google and past the link</p>
-          <input
+          <InputField
+            label="Image URL"
             type="text"
             name="image"
             value={formData.image}
             onChange={handleChange}
+            error={errors.image}
+            helpText="Search an image on Google and paste the link"
           />
-          {renderError('image')}
-
-          <label>Description</label>
-          <p>Max 256 characters</p>
-          <textarea
+          <TextAreaField
+            label="Description"
             name="description"
             value={formData.description}
             onChange={handleChange}
+            error={errors.description}
+            helpText="Max 256 characters"
           />
-          {renderError('description')}
-
-          <label>Category</label>
-          <p>Select the category of the event</p>
-          <select
+          <SelectField
+            label="Category"
             name="category_id"
-            value={formData.id}
+            value={formData.category_id}
             onChange={handleChange}
-          >
-            <option value={0} disabled>
-              Select a category
-            </option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.category}
-              </option>
-            ))}
-          </select>
-          {renderError('category_id')}
-
-          <label>Date</label>
-          <p>Select a date</p>
-          <input
+            options={categories}
+            error={errors.category_id}
+          />
+          <InputField
+            label="Date"
             type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
+            error={errors.date}
           />
-          {renderError('date')}
-
-          <label>Start Time</label>
-          <p>Select the event start time</p>
-          <input
+          <InputField
+            label="Start Time"
             type="time"
             name="time_start"
             value={formData.time_start}
             onChange={handleChange}
+            error={errors.time_start}
           />
-          {renderError('time_start')}
-
-          <label>End Time</label>
-          <p>Select the event end time</p>
-          <input
+          <InputField
+            label="End Time"
             type="time"
             name="time_end"
             value={formData.time_end}
             onChange={handleChange}
+            error={errors.time_end}
           />
-          {renderError('time_end')}
-
-          <label>Location</label>
-          <p>The city of the event</p>
-          <input
+          <InputField
+            label="Location"
             type="text"
             name="location"
             value={formData.location}
             onChange={handleChange}
+            error={errors.location}
+            helpText="The city of the event"
           />
-          {renderError('location')}
-
-          <label>Latitude</label>
-          <p>Search for the coordinates on Google Maps</p>
-          <input
+          <InputField
+            label="Latitude"
             type="text"
             name="latitude"
             value={formData.latitude}
             onChange={handleChange}
+            error={errors.latitude}
+            helpText="Search for the coordinates on Google Maps"
           />
-          {renderError('latitude')}
-
-          <label>Longitude</label>
-          <p>Search for the coordinates on Google Maps</p>
-          <input
+          <InputField
+            label="Longitude"
             type="text"
             name="longitude"
             value={formData.longitude}
             onChange={handleChange}
+            error={errors.longitude}
+            helpText="Search for the coordinates on Google Maps"
           />
-          {renderError('longitude')}
-
           {generalError && <p className="error-message">{generalError}</p>}
-
           <button type="submit">Submit</button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -3,14 +3,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #ffffff; /* Sfondo chiaro */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombra per profondità */
-  z-index: 1;
-  width: 100%;
+  padding: 20px; /* Puoi considerare di ridurre il padding */
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Assicurati che l'header sia largo al 100% */
   position: fixed;
-  top: 0;
+  top: 0; /* Fissa l'header nella parte superiore */
+  left: 0; /* Fissa l'header a sinistra */
+  z-index: 1; /* Mantiene l'header sopra gli altri contenuti */
 }
+
 
 /* Pulsante di apertura dei filtri */
 .header button {
