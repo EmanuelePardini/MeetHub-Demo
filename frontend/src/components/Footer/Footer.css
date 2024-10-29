@@ -1,46 +1,74 @@
+/* Footer principale */
 .footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    background-color: #f4f4f4;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px 10px;
+  background-color: #f8f8f9; /* Sfondo chiaro */
+  border-top: 2px solid #e0e0e0; /* Linea di separazione */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Ombra in alto */
 }
 
-
+/* Sezione all'interno del footer */
 .footer-section {
-    margin-left: 10px;
-    flex: 1 1 20%;
+  margin: 10px;
+  flex: 1 1 20%;
+  max-width: 180px; /* Limita la larghezza per layout ordinato */
 }
 
+/* Titoli delle sezioni */
 .footer-section h3 {
   font-size: 1rem;
   color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
+/* Elenco e link */
 .footer-section ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.footer-section a, li, p {
-font-size: 0.75rem;
-  text-decoration: none;
+.footer-section a, .footer-section li, .footer-section p {
+  font-size: 0.85rem;
   color: #666;
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color 0.3s;
 }
 
 .footer-section a:hover {
-  color: #000;
+  color: #00d9ff; /* Colore di hover più vivace */
 }
 
+/* Logo */
 .logo {
-  font-family: "Pacifico", sans-serif;
-  font-size: 1.5rem; /* Dimensione del font di esempio */
-  background: linear-gradient(to bottom right, #00d9ff, #000000);
-  -webkit-background-clip: text; /* Specifico per WebKit (Chrome, Safari, etc.) */
-  color: transparent; /* Rende il testo del titolo trasparente */
+  font-family: "Pacifico", cursive;
+  font-size: 1.6rem;
+  background: linear-gradient(to bottom right, #00d9ff, #333);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-section {
+    flex: 1 1 100%;
+    max-width: 100%;
+    text-align: center;
+  }
 }
