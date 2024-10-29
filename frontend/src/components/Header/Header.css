@@ -11,6 +11,7 @@
   top: 0; /* Fissa l'header nella parte superiore */
   left: 0; /* Fissa l'header a sinistra */
   z-index: 1; /* Mantiene l'header sopra gli altri contenuti */
+  padding-bottom: 50%;
 }
 
 
