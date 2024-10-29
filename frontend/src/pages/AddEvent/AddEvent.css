@@ -1,8 +1,9 @@
 .add-event-page {
+  padding-top: 80px; /* Match this to the header height */
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Full height of the viewport */
-  overflow-y: auto; /* Allow scrolling */
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable scrolling */
 }
 
 /* Contenitore principale della sezione per aggiungere un evento */
