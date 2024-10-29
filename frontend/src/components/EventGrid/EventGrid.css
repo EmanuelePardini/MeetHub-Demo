@@ -11,16 +11,23 @@
 .event-card {
   width: calc(70% - 40px); /* Larghezza minima del 70% con margine */
   aspect-ratio: 1; /* Rende le card quadrate */
-  border-radius: 8px;
+  border-radius: 12px; /* Angoli più arrotondati */
   padding: 20px;
-  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.4s ease; /* Transizione più fluida */
   margin: 20px;
   text-align: center;
   position: relative;
-  background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradiente azzurro */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Ombra più marcata */
   overflow: hidden;
 }
+
+/* Modifiche al comportamento al passaggio del mouse */
+.event-card:hover {
+  transform: scale(1.05); /* Leggero ingrandimento */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Ombra più intensa */
+}
+
 
 /* Dettagli dell'evento (nascosti di default) */
 .event-details {
@@ -99,10 +106,11 @@
 
 .event-body h1 {
   font-size: 1.5rem;
-  background: linear-gradient(to right, #00d9ff, #000);
+  background: linear-gradient(to right, #ff4d4d, #000); /* Cambiato a un gradiente rosso e nero */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 
 .event-body p {
   font-size: 0.9rem;
